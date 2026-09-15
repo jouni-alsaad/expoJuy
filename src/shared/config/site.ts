@@ -1,3 +1,42 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "ExpoJuy 2026";
+
+export interface SiteConfig {
+  name: string;
+  url: string;
+  ogLocale: string;
+  title: string;
+  titleTemplate: string;
+  description: string;
+  ogDescription: string;
+  tagline: string;
+  keywords: readonly string[];
+}
+
+export const siteConfig: SiteConfig = {
+  name: siteName,
+  url: siteUrl,
+  ogLocale: "es_AR",
+  title: `${siteName} · Feria multisectorial del NOA`,
+  titleTemplate: `%s · ${siteName}`,
+  description: `${siteName} es la feria multisectorial más importante del Noroeste Argentino (NOA), organizada por la Cámara de Comercio Exterior de Jujuy. Descubrí, viví y proyectá el legado de un evento que conecta empresas, industrias y comunidad en San Salvador de Jujuy.`,
+  ogDescription: `Descubrí, viví y disfrutá el legado de ${siteName}.`,
+  tagline: "La plataforma del evento",
+  keywords: [
+    "ExpoJuy",
+    "ExpoJuy 2026",
+    "feria multisectorial",
+    "NOA",
+    "Noroeste Argentino",
+    "Jujuy",
+    "San Salvador de Jujuy",
+    "Cámara de Comercio Exterior de Jujuy",
+    "rueda de negocios",
+    "expositores",
+    "eventos Jujuy",
+  ],
+};
+
 export interface ContactChannel {
   email: string;
   phoneDisplay: string;
