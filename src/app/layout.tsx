@@ -10,24 +10,31 @@ import {
   SmoothScrollProvider,
   ThemeProvider,
 } from "@/shared/components";
+import { siteConfig } from "@/shared/config";
 import { ambit } from "@/shared/config/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ExpoJuy 2026 · Feria multisectorial del NOA",
-    template: "%s · ExpoJuy 2026",
+    default: siteConfig.title,
+    template: siteConfig.titleTemplate,
   },
-  description:
-    "Sitio oficial de ExpoJuy 2026, la feria multisectorial más importante del NOA organizada por la Cámara de Comercio Exterior de Jujuy.",
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
   openGraph: {
     type: "website",
-    locale: "es_AR",
-    siteName: "ExpoJuy 2026",
-    title: "ExpoJuy 2026 · Feria multisectorial del NOA",
-    description: "Descubrí, viví y disfrutá el legado de ExpoJuy 2026.",
-    images: [{ url: "/brand/expojuy-logo.svg", alt: "ExpoJuy 2026" }],
+    locale: siteConfig.ogLocale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.ogDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.ogDescription,
+    images: [{ url: "/opengraph-image", alt: siteConfig.title }],
   },
   icons: {
     icon: [{ url: "/brand/expojuy-isologotipo.svg", type: "image/svg+xml" }],
